@@ -13,10 +13,9 @@ to collect deployment logging.
 Follow the instructions [here](https://docs.railway.app/reference/public-api) to generate the token.
 3. Obtain your Deployment ID, which is required to retrieve a running stream of logs. You can find it in the Railway 
 Dashboard by navigating to YOUR_PROJECT -> YOUR_ENVIRONMENT -> TARGET_SERVICE -> Deployments -> View Logs, and selecting 
-the UUID adjacent to the project.
-https://github.com/kyle-randolph/deploy-logging-railway/assets/20173512/1849086a-dcd1-4840-8d51-730c54c7239f
-4. Ensure that the system running this script has Python@3.7 installed
-5. This script leverages the gql library to establish a websocket connection 
+the UUID adjacent to the project. ([Here's](https://github.com/kyle-randolph/deploy-logging-railway/assets/20173512/1849086a-dcd1-4840-8d51-730c54c7239f) a short video showing exactly where to get the Deployment ID)
+5. Ensure that the system running this script has Python@3.7 installed
+6. This script leverages the gql library to establish a websocket connection 
 to log streaming. Refer to the installation instructions [here](https://github.com/graphql-python/gql#installation) 
 
 ## Implementation Notes
