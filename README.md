@@ -3,7 +3,8 @@ deploy-logging-railway is an open source Python tool designed to stream logs fro
 
 ## Overview
 This script facilitates the extraction of logs from a running application deployment, enabling efficient debugging.  
-Currently this script is set to the scope of a single deployment. Once properly set up and authorized, the script creates a new file named `railwayDeploymentLogging.log`, which contains the output of the gathered deployment logs as they become available.
+Currently this script is set to the scope of a single deployment. Once properly set up and authorized, the script creates a new file named `railwayDeploymentLogging.log` in your current working 
+directory, which contains the output of the gathered deployment logs as they become available.
 
 ## Prerequisites
 Before using this tool, ensure the following has been completed:
@@ -22,7 +23,7 @@ to log streaming. Refer to the installation instructions [here](https://github.c
 This script leverages the [gql library](https://gql.readthedocs.io/en/stable/index.html)
 to execute queries against the GraphQL API. Specifically, it establishes a websocket connection using gpl to create a 
 subscription in GraphQL, allowing for continuous log streaming. 
-After creating the websocket, the script creates instance of the Client 
+After creating the websocket, the script creates an instance of the Client 
 class and leverages the subscribe method to receive a stream of deployment logs from the service. The script then 
 iterates through the results and writes them to a file.
 
