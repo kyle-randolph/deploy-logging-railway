@@ -6,6 +6,7 @@ try:
     from gql.transport.websockets import WebsocketsTransport
 except ImportError as e:
     print("Error importing modules:", e)
+    sys.exit(1)
 
 # The file name for logs to be written to
 file_name = "railwayDeploymentLogging.log"
@@ -35,6 +36,7 @@ def build_graph_query(authorization_token, deployment_id):
         )
     except Exception as e:
         print("Error creating the GraphQL client:", e)
+        sys.exit(1)
 
     # The query string listed here is using a subscription. This allows for the continous reading of
     # changes to the deployment logs for running applications.
@@ -50,8 +52,10 @@ def build_graph_query(authorization_token, deployment_id):
         """%(deployment_id))
     except Exception as e:
         print("Error creating the GraphQL query string: ", e)
+        sys.exit(1)
     except GraphQLError as e:
         print("Syntax error in GraphQL string: ", e)
+        sys.exit(1)
     return gql_client, gql_query
 
 def open_subscription_stream(gql_client, gql_query, file_name):
@@ -66,6 +70,7 @@ def open_subscription_stream(gql_client, gql_query, file_name):
                 print("Error opening or writing to the log file:", e)
     except Exception as e:
         print("Error in the GraphQL subscription:", e)
+        sys.exit(1)
     except KeyboardInterrupt:
         print("KeyboardInterrupt detected, exiting...")
         sys.exit(0)
