@@ -27,7 +27,7 @@ After creating the websocket, the script creates an instance of the Client
 class and leverages the subscribe method to receive a stream of deployment logs from the service. The script then 
 iterates through the results and writes them to a file.
 
-## Next Steps
+## Future Considerations
 If you wish to extend on the capabilities of the script, you can review the 
 [API](https://backboard.railway.app/graphql/v2) using introspection in Postman or 
 Insomnia to explore the rest of the querying schema. You can also experiment with queries using our browser-based playground [here](https://railway.app/graphiql)
@@ -36,3 +36,6 @@ Currently, the Deployment ID and API Key (authorization token) are saved in clea
 recommended to pass the Deployment ID as a parameter to the script to make it easier to store logs from different 
 deployments. Furthermore, for enhanced security, consider storing the API key encrypted on the system and decrypt it when 
 used by this script.
+
+As an aside, depending on the volume of messages that are being stored, you may also want to have log rotation in place to ensure the logs are manageable in a text editor or when being greped.
+The [Linux manpage](https://linux.die.net/man/8/logrotate) is particularly useful for configuring logrotation.
